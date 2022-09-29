@@ -21,7 +21,7 @@ npm start
 
 
 
-## API Documentation
+# API Documentation
 Example
 GET - /organizationdata/id/:id
 This endpoint is used as an example template for all endpoints in this project
@@ -79,5 +79,7 @@ Query Parameters: searchBy(name, date) , eventName, eventDate
 Returns all events that match the query parameters. Searching can be achieved by passing in a searchBy parameter to determine query type and another parameter for the value. 
 
 POST - /eventdata/
+
 PUT - /eventdata/
+PUT - /eventdata/addAttendee/:id
 DELETE - /eventdata/
