@@ -80,6 +80,9 @@ Returns all events that match the query parameters. Searching can be achieved by
 
 #### POST - /eventdata/
 
-#### PUT - /eventdata/
+#### PUT - /eventdata/:id
+Updates event data by id
 #### PUT - /eventdata/addAttendee/:id
+Adds an attendee to event data
 #### DELETE - /eventdata/
+Deletes an entire event
