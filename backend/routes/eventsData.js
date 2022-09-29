@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+ObjectId = require('mongodb').ObjectId;
 
 //importing data model schemas
 let { eventdata } = require("../models/models"); 
@@ -27,6 +28,19 @@ router.get("/id/:id", (req, res, next) => {
         }
     })
 });
+
+
+//GET all entries with org_id
+router.get("/org/:id", (req, res, next) => { 
+    eventdata.find({"organization_id": new ObjectId(req.params.id)}, (error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+    })
+});
+
 
 //GET entries based on search query
 //Ex: '...?eventName=Food&searchBy=name' 

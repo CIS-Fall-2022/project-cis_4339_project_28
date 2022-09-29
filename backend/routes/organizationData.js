@@ -2,12 +2,11 @@ const express = require("express");
 const router = express.Router(); 
 
 //importing data model schemas
-let { primarydata } = require("../models/models"); 
-let { eventdata } = require("../models/models"); 
+let { organizationdata } = require("../models/models"); 
 
 //GET all entries
 router.get("/", (req, res, next) => { 
-    primarydata.find( 
+    organizationdata.find( 
         (error, data) => {
             if (error) {
                 return next(error);
@@ -20,7 +19,7 @@ router.get("/", (req, res, next) => {
 
 //GET single entry by ID
 router.get("/id/:id", (req, res, next) => {
-    primarydata.find( 
+    organizationdata.find( 
         { _id: req.params.id }, 
         (error, data) => {
             if (error) {
@@ -31,19 +30,6 @@ router.get("/id/:id", (req, res, next) => {
         }
     );
 });
-
-
-//GET all entries with org_id
-router.get("/org/:id", (req, res, next) => { 
-    eventdata.find({"organization_id": new ObjectId(req.params.id)}, (error, data) => {
-        if (error) {
-            return next(error)
-        } else {
-            res.json(data)
-        }
-    })
-});
-
 
 //GET entries based on search query
 //Ex: '...?firstName=Bob&lastName=&searchBy=name' 
@@ -56,7 +42,7 @@ router.get("/search/", (req, res, next) => {
             "phoneNumbers.primaryPhone": { $regex: `^${req.query["phoneNumbers.primaryPhone"]}`, $options: "i" }
         }
     };
-    primarydata.find( 
+    organizationdata.find( 
         dbQuery, 
         (error, data) => { 
             if (error) {
@@ -68,14 +54,10 @@ router.get("/search/", (req, res, next) => {
     );
 });
 
-//GET events for a single client
-router.get("/events/:id", (req, res, next) => { 
-    
-});
 
 //POST
 router.post("/", (req, res, next) => { 
-    primarydata.create( 
+    organizationdata.create( 
         req.body,
         (error, data) => { 
             if (error) {
@@ -85,14 +67,14 @@ router.post("/", (req, res, next) => {
             }
         }
     );
-    primarydata.createdAt;
-    primarydata.updatedAt;
-    primarydata.createdAt instanceof Date;
+    organizationdata.createdAt;
+    organizationdata.updatedAt;
+    organizationdata.createdAt instanceof Date;
 });
 
 //PUT update (make sure req body doesn't have the id)
 router.put("/:id", (req, res, next) => { 
-    primarydata.findOneAndUpdate( 
+    organizationdata.findOneAndUpdate( 
         { _id: req.params.id }, 
         req.body,
         (error, data) => {

@@ -2,11 +2,12 @@ const uuid = require('uuid');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 //collection for intakeData
 let primaryDataSchema = new Schema({
-    _id: { type: String, default: uuid.v1 },
+    _id: { type: Schema.Types.ObjectId, default: uuid.v1 },
     organization_id: {
-        type: String,
+        type: Schema.Types.ObjectId,
         require: true
     },
     firstName: {
@@ -52,10 +53,10 @@ let primaryDataSchema = new Schema({
 
 //collection for eventData
 let eventDataSchema = new Schema({
-    _id: { type: String, default: uuid.v1 },
+    _id: { type: Schema.Types.ObjectId, default: uuid.v1 },
     organization_id: {
-        type: String,
-        require: true
+        type: Schema.Types.ObjectId,
+        require: true,
     },
     eventName: {
         type: String,
@@ -89,7 +90,7 @@ let eventDataSchema = new Schema({
         type: String,
     },
     attendees: [{
-        type: String
+        type: Schema.Types.ObjectId
     }]
 }, {
     collection: 'eventData'
@@ -97,7 +98,7 @@ let eventDataSchema = new Schema({
 
 //collection for eventData
 let organizationDataSchema = new Schema({
-    _id: { type: String, default: uuid.v1 },
+    _id: { type: Schema.Types.ObjectId, default: uuid.v1 },
     organizationName: {
         type: String,
         require: true
