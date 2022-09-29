@@ -76,6 +76,8 @@ Returns all events that are part of the provided organization id.
 
 #### GET - /eventdata/search/
 Query Parameters: searchBy(name, date) , eventName, eventDate
+
+
 Returns all events that match the query parameters. Searching can be achieved by passing in a searchBy parameter to determine query type and another parameter for the value. 
 
 #### POST - /eventdata/
