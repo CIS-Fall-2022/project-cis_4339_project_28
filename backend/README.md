@@ -48,7 +48,7 @@ DELETE - /organizationdata/:id
 Deleting organization data by id
 
 
-Clients
+### Clients
 GET - /primarydata/
 Returns a list of every client.
 GET - /primarydata/id/:id
@@ -65,7 +65,7 @@ DELETE /primarydata/
 
 
 
-Events
+### Events
 GET - /eventdata/
 Returns a list of every event.
 GET - /eventdata/id/:id
