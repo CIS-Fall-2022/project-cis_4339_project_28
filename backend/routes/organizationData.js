@@ -36,11 +36,12 @@ router.get("/id/:id", (req, res, next) => {
 router.get("/search/", (req, res, next) => { 
     let dbQuery = "";
     if (req.query["searchBy"] === 'name') {
-        dbQuery = { firstName: { $regex: `^${req.query["firstName"]}`, $options: "i" }, lastName: { $regex: `^${req.query["lastName"]}`, $options: "i" } }
-    } else if (req.query["searchBy"] === 'number') {
-        dbQuery = {
-            "phoneNumbers.primaryPhone": { $regex: `^${req.query["phoneNumbers.primaryPhone"]}`, $options: "i" }
-        }
+        dbQuery = { organizationName: { $regex: `^${req.query["organizationName"]}`, $options: "i" } }
+    } else if (req.query["searchBy"] === 'email') {
+        dbQuery = { organizationEmail: { $regex: `^${req.query["organizationEmail"]}`, $options: "i" } }
+    } else if (req.query["searchBy"] === 'phone') {
+        dbQuery = { organizationPhone: { $regex: `^${req.query["organizationPhone"]}`, $options: "i" } }
+    }
     };
     organizationdata.find( 
         dbQuery, 
