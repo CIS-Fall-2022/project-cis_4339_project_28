@@ -56,7 +56,11 @@ Returns a single client with the specified id.
 #### GET - /primarydata/org/:id
 Returns all clients that are part of the provided organization id.
 #### GET - /primarydata/search/
-	Returns all clients that match the query parameters. Possible query parameters are firstName, lastName, or phoneNumbers.primaryPhone. Search mode is determined by the query parameter searchBy which can be given a value of either “name” or “number”.
+	Returns all clients that match the query parameters. 
+	
+	Possible query parameters are firstName, lastName, or phoneNumbers.primaryPhone. 
+	
+	Search mode is determined by the query parameter searchBy which can be given a value of either “name” or “number”.
 
 #### POST /primarydata/
 
