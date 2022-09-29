@@ -30,21 +30,21 @@ This endpoint is used as an example template for all endpoints in this project
 #### GET - /organizationdata/
 Returns a list of every organization.
 
-GET - /organizationdata/id/:id
+#### GET - /organizationdata/id/:id
 Returns a single organization with the specified id
 
-GET - /organizationdata/search/
+#### GET - /organizationdata/search/
 Returns all organizations that match the query parameters. Possible query parameters are organizationName, organizationDate, or organizationEmail. Search mode is determined by the query parameter searchBy which can be given a value of either “name”, “email”, or “phone”.
 Example: /organizationdata/search/?searchBy=name&organizationName=Org1
 
-POST - /organizationdata/
+#### POST - /organizationdata/
 Adding a new organization 
 
 
-PUT - /organizationdata/:id
+#### PUT - /organizationdata/:id
 Updating organization data
 
-DELETE - /organizationdata/:id
+#### DELETE - /organizationdata/:id
 Deleting organization data by id
 
 
