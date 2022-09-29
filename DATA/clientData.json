@@ -1,0 +1,154 @@
+[
+    {
+        "firstName" : "Cruz",
+        "middleName" : "A",
+        "lastName" : "Lopez",
+        "email" : "cruzalopez@gmail.com",
+        "phoneNumbers" : "1234567890",
+        "address" : 
+            {
+            "line1" : "123 Go Coogs Street",
+            "line2" : "",
+            "city" : "Houston",
+            "county" : "Harris",
+            "zip" : "77002"
+            }
+    },
+    {
+        "firstName" : "Brett",
+        "middleName" : "",
+        "lastName" : "Meirhofer",
+        "email" : "brettmeirhofer@gmail.com",
+        "phoneNumbers" : "1234567899",
+        "address" : 
+            {
+            "line1" : "456 Go Coogs Street",
+            "line2" : "",
+            "city" : "Houston",
+            "county" : "Harris",
+            "zip" : "77002"
+            }
+
+    },
+    {
+        "firstName" : "Ashton",
+        "middleName" : "",
+        "lastName" : "Chiang",
+        "email" : "ashtonchiang@gmail.com",
+        "phoneNumbers" : "1234567888",
+        "address" : 
+            {
+            "line1" : "789 Go Coogs Street",
+            "line2" : "",
+            "city" : "Houston",
+            "county" : "Harris",
+            "zip" : "77002"
+            }
+
+    },
+    {
+        "firstName" : "Peggy",
+        "middleName" : "",
+        "lastName" : "Lindner",
+        "email" : "peggylindner@UH.edu",
+        "phoneNumbers" : "1234567777",
+        "address" : 
+            {
+            "line1" : "9090 Go Coogs Street",
+            "line2" : "",
+            "city" : "Houston",
+            "county" : "Harris",
+            "zip" : "77002"
+            }
+    },
+    {
+        "firstName" : "Chris",
+        "middleName" : "",
+        "lastName" : "Rock",
+        "email" : "chrisrock@hotmail.com",
+        "phoneNumbers" : "1029384756",
+        "address" : 
+            {
+            "line1" : "8273 Got Slapped Rd",
+            "line2" : "",
+            "city" : "Houston",
+            "county" : "Harris",
+            "zip" : "77002"
+            }
+    },
+    {
+        "firstName" : "Sean",
+        "middleName" : "S",
+        "lastName" : "Smith",
+        "email" : "seansmith@gmail.com",
+        "phoneNumbers" : "0987654321",
+        "address" : 
+            {
+            "line1" : "463 Crosswind Dr",
+            "line2" : "",
+            "city" : "Houston",
+            "county" : "Harris",
+            "zip" : "77002"
+            }
+    },
+    {
+        "firstName" : "Larry",
+        "middleName" : "",
+        "lastName" : "Bird",
+        "email" : "larrybird@yahoo.com",
+        "phoneNumbers" : "1112223334",
+        "address" : 
+            {
+            "line1" : "938 Three Point Rd",
+            "line2" : "",
+            "city" : "Austin",
+            "county" : "Travis",
+            "zip" : "78744"
+            }
+    },
+    {
+        "firstName" : "Aaron",
+        "middleName" : "",
+        "lastName" : "Rodgers",
+        "email" : "aaronrodgers",
+        "phoneNumbers" : "1020309234",
+        "address" : 
+            {
+            "line1" : "912 Discount Double Check Street",
+            "line2" : "",
+            "city" : "Dallas",
+            "county" : "Denton",
+            "zip" : "75001"
+            }
+    },
+    {
+        "firstName" : "Tom",
+        "middleName" : "GOAT",
+        "lastName" : "Brady",
+        "email" : "tombrady@gmail.com",
+        "phoneNumbers" : "7779893242",
+        "address" : 
+            {
+            "line1" : "812 Rings Street",
+            "line2" : "",
+            "city" : "Tampa Bay",
+            "county" : "Hillsborough",
+            "zip" : "33650"
+            }
+    },
+    {
+        "firstName" : "Michael",
+        "middleName" : "D",
+        "lastName" : "Fertitta",
+        "email" : "michaelfertitta@gmail.com",
+        "phoneNumbers" : "1239874321",
+        "address" : 
+            {
+            "line1" : "9123 Cougar Lane",
+            "line2" : "",
+            "city" : "Houston",
+            "county" : "Harris",
+            "zip" : "77002"
+            }
+    }
+]
