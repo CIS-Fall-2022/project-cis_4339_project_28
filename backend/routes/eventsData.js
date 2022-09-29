@@ -81,11 +81,12 @@ router.get("/client/:id", (req, res, next) => {
 
 //POST
 router.post("/", (req, res, next) => { 
+    console.log(req.body)
     eventdata.create( 
         req.body, 
         (error, data) => { 
             if (error) {
-                return next(error);
+                //return next(error);
             } else {
                 res.json(data);
             }
@@ -136,6 +137,19 @@ router.put("/addAttendee/:id", (req, res, next) => {
         }
     );
     
+});
+
+router.delete("/:id", (req, res, next) => { 
+    eventdata.findByIdAndRemove( 
+        req.params.id, 
+        (error, data) => {
+            if (error) {
+                return next(error);
+            } else {
+                res.json(data);
+            }
+        }
+    );
 });
 
 module.exports = router;

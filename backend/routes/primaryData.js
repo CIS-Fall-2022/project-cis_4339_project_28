@@ -45,6 +45,8 @@ router.get("/org/:id", (req, res, next) => {
 });
 
 
+
+
 //GET entries based on search query
 //Ex: '...?firstName=Bob&lastName=&searchBy=name' 
 router.get("/search/", (req, res, next) => { 
@@ -104,5 +106,21 @@ router.put("/:id", (req, res, next) => {
         }
     );
 });
+
+//DELETE
+router.delete("/:id", (req, res, next) => { 
+    primarydata.findByIdAndRemove( 
+        req.params.id, 
+        (error, data) => {
+            if (error) {
+                return next(error);
+            } else {
+                res.json(data);
+            }
+        }
+    );
+});
+
+
 
 module.exports = router;

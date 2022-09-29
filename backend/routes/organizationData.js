@@ -88,4 +88,19 @@ router.put("/:id", (req, res, next) => {
     );
 });
 
+router.delete("/:id", (req, res, next) => { 
+    organizationdata.findByIdAndRemove( 
+        req.params.id, 
+        (error, data) => {
+            if (error) {
+                return next(error);
+            } else {
+                res.json(data);
+            }
+        }
+    );
+});
+
+
+
 module.exports = router;
