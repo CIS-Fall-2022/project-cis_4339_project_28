@@ -42,7 +42,7 @@ router.get("/search/", (req, res, next) => {
     } else if (req.query["searchBy"] === 'phone') {
         dbQuery = { organizationPhone: { $regex: `^${req.query["organizationPhone"]}`, $options: "i" } }
     }
-    };
+    
     organizationdata.find( 
         dbQuery, 
         (error, data) => { 
