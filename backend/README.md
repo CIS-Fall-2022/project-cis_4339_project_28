@@ -26,7 +26,7 @@ Example
 GET - /organizationdata/id/:id
 This endpoint is used as an example template for all endpoints in this project
 
-Organizations
+### Organizations
 GET - /organizationdata/
 Returns a list of every organization.
 
