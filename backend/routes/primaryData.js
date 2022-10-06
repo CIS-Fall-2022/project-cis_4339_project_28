@@ -1,37 +1,16 @@
 const express = require("express"); 
-const router = express.Router(); 
+const router = express.Router();
+
+
+const commonRoutes = require('./commonRoutes');
+
 
 //importing data model schemas
 let { primarydata } = require("../models/models"); 
 let { eventdata } = require("../models/models"); 
 
-//GET all entries
-router.get("/", (req, res, next) => { 
-    primarydata.find( 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    ).sort({ 'updatedAt': -1 }).limit(10);
-});
 
-//GET single entry by ID
-router.get("/id/:id", (req, res, next) => {
-    primarydata.find( 
-        { _id: req.params.id }, 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
-
+commonRoutes.generate_common_endpoints(primarydata, router);
 
 //GET all entries with org_id
 router.get("/org/:id", (req, res, next) => { 
@@ -73,52 +52,6 @@ router.get("/search/", (req, res, next) => {
 //GET events for a single client
 router.get("/events/:id", (req, res, next) => { 
     
-});
-
-//POST
-router.post("/", (req, res, next) => { 
-    primarydata.create( 
-        req.body,
-        (error, data) => { 
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data); 
-            }
-        }
-    );
-    primarydata.createdAt;
-    primarydata.updatedAt;
-    primarydata.createdAt instanceof Date;
-});
-
-//PUT update (make sure req body doesn't have the id)
-router.put("/:id", (req, res, next) => { 
-    primarydata.findOneAndUpdate( 
-        { _id: req.params.id }, 
-        req.body,
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
-
-//DELETE
-router.delete("/:id", (req, res, next) => { 
-    primarydata.findByIdAndRemove( 
-        req.params.id, 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
 });
 
 

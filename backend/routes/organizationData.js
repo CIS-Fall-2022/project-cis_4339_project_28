@@ -4,32 +4,11 @@ const router = express.Router();
 //importing data model schemas
 let { organizationdata } = require("../models/models"); 
 
-//GET all entries
-router.get("/", (req, res, next) => { 
-    organizationdata.find( 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    ).sort({ 'updatedAt': -1 }).limit(10);
-});
+const commonRoutes = require('./commonRoutes');
 
-//GET single entry by ID
-router.get("/id/:id", (req, res, next) => {
-    organizationdata.find( 
-        { _id: req.params.id }, 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
+
+commonRoutes.generate_common_endpoints(organizationdata, router);
+
 
 //GET entries based on search query
 //Ex: '...?firstName=Bob&lastName=&searchBy=name' 
@@ -54,53 +33,5 @@ router.get("/search/", (req, res, next) => {
         }
     );
 });
-
-
-//POST
-router.post("/", (req, res, next) => { 
-    organizationdata.create( 
-        req.body,
-        (error, data) => { 
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data); 
-            }
-        }
-    );
-    organizationdata.createdAt;
-    organizationdata.updatedAt;
-    organizationdata.createdAt instanceof Date;
-});
-
-//PUT update (make sure req body doesn't have the id)
-router.put("/:id", (req, res, next) => { 
-    organizationdata.findOneAndUpdate( 
-        { _id: req.params.id }, 
-        req.body,
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
-
-router.delete("/:id", (req, res, next) => { 
-    organizationdata.findByIdAndRemove( 
-        req.params.id, 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
-
-
 
 module.exports = router;

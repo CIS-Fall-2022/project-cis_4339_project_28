@@ -5,29 +5,10 @@ ObjectId = require('mongodb').ObjectId;
 //importing data model schemas
 let { eventdata } = require("../models/models"); 
 
-//GET all entries
-router.get("/", (req, res, next) => { 
-    eventdata.find( 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    ).sort({ 'updatedAt': -1 }).limit(10);
-});
+const commonRoutes = require('./commonRoutes');
 
-//GET single entry by ID
-router.get("/id/:id", (req, res, next) => { 
-    eventdata.find({ _id: req.params.id }, (error, data) => {
-        if (error) {
-            return next(error)
-        } else {
-            res.json(data)
-        }
-    })
-});
+//DELETE
+commonRoutes.generate_common_endpoints(eventdata, router);
 
 
 //GET all entries with org_id
@@ -79,35 +60,7 @@ router.get("/client/:id", (req, res, next) => {
     );
 });
 
-//POST
-router.post("/", (req, res, next) => { 
-    console.log(req.body)
-    eventdata.create( 
-        req.body, 
-        (error, data) => { 
-            if (error) {
-                //return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
 
-//PUT
-router.put("/:id", (req, res, next) => {
-    eventdata.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body,
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
 
 //PUT add attendee to event
 router.put("/addAttendee/:id", (req, res, next) => {
@@ -139,17 +92,6 @@ router.put("/addAttendee/:id", (req, res, next) => {
     
 });
 
-router.delete("/:id", (req, res, next) => { 
-    eventdata.findByIdAndRemove( 
-        req.params.id, 
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                res.json(data);
-            }
-        }
-    );
-});
+//PUT remove attendee from event
 
 module.exports = router;
