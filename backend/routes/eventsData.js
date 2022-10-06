@@ -93,5 +93,33 @@ router.put("/addAttendee/:id", (req, res, next) => {
 });
 
 //PUT remove attendee from event
+router.put("/removeAttendee/:id", (req, res, next) => {
+    //only remove attendee if signed up
+    eventdata.find( 
+        { _id: req.params.id, attendees: req.body.attendee }, 
+        (error, data) => { 
+            if (error) {
+                return next(error);
+            } else {
+                if (data.length > 0) {
+                    eventdata.updateOne(
+                        { _id: req.params.id }, 
+                        { $pull: { attendees: req.body.attendee } },
+                        (error, data) => {
+                            if (error) {
+                                consol
+                                return next(error);
+                            } else {
+                                res.json(data);
+                            }
+                        }
+                    );
+                }
+                
+            }
+        }
+    );
+    
+});
 
 module.exports = router;
