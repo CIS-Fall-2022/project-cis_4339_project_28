@@ -80,6 +80,7 @@ function replace_existing_endpoint(target_collection, router){
     });
 };
 
+// Adds all reusable endpoints into a single func so each collection only needs one line
 function generate_common_endpoints(target_collection, router){
     delete_endpoint(target_collection, router);
     get_all_endpoint(target_collection, router);
@@ -87,10 +88,6 @@ function generate_common_endpoints(target_collection, router){
     replace_existing_endpoint(target_collection, router);
     add_new_endpoint(target_collection, router);
 }
-
-// POST
-
-// PUT
 
 module.exports.delete_endpoint = delete_endpoint;
 module.exports.get_all_endpoint = get_all_endpoint;
