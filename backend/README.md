@@ -92,3 +92,5 @@ Updates event data by id
 Adds an attendee to event data
 #### DELETE - /eventdata/
 Deletes an entire event
+#### PUT - /eventdata/removeAttendee/:id
+Removes an attendee if user has signed up
