@@ -99,6 +99,7 @@ export default {
   },
   mounted() {
     let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/`;
+    console.log(apiURL)
     this.queryData = [];
     axios.get(apiURL).then((resp) => {
       this.queryData = resp.data;

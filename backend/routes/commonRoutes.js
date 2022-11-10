@@ -2,8 +2,8 @@ const express = require("express");
 
 function delete_endpoint(target_collection, router){
     router.delete("/:id", (req, res, next) => { 
-        target_collection.findByIdAndRemove( 
-            req.params.id, 
+        target_collection.findOneandRemove( 
+            {_id: req.params.id, organization_id: process.env.ORG_ID},
             (error, data) => {
                 if (error) {
                     return next(error);
@@ -18,7 +18,7 @@ function delete_endpoint(target_collection, router){
 //GET all entries
 function get_all_endpoint(target_collection, router){
     router.get("/", (req, res, next) => { 
-        target_collection.find( 
+        target_collection.find( {organization_id: process.env.ORG_ID},
             (error, data) => {
                 if (error) {
                     return next(error);
@@ -34,7 +34,7 @@ function get_all_endpoint(target_collection, router){
 function get_one_endpoint(target_collection, router){
     router.get("/id/:id", (req, res, next) => {
         target_collection.find( 
-            { _id: req.params.id }, 
+            { _id: req.params.id, organization_id: process.env.ORG_ID }, 
             (error, data) => {
                 if (error) {
                     return next(error);
@@ -49,7 +49,7 @@ function get_one_endpoint(target_collection, router){
 //POST
 function add_new_endpoint(target_collection, router){
     router.post("/", (req, res, next) => { 
-        console.log(req.body)
+        req.body.organization_id = process.env.ORG_ID 
         target_collection.create( 
             req.body, 
             (error, data) => { 
@@ -67,7 +67,7 @@ function add_new_endpoint(target_collection, router){
 function replace_existing_endpoint(target_collection, router){
     router.put("/:id", (req, res, next) => {
         target_collection.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.id, organization_id: process.env.ORG_ID  },
             req.body,
             (error, data) => {
                 if (error) {
