@@ -10,6 +10,19 @@ const commonRoutes = require('./commonRoutes');
 //DELETE
 commonRoutes.generate_common_endpoints(eventdata, router);
 
+// 
+router.get("/dashboard/", (req, res, next) => {
+    eventdata.find( 
+        { organization_id: process.env.ORG_ID}, 
+        (error, data) => {
+            if (error) {
+                return next(error);
+            } else {
+                res.json(data);
+            }
+        }
+    );
+});
 
 //GET all entries with org_id
 router.get("/org/:id", (req, res, next) => { 

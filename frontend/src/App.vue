@@ -63,7 +63,7 @@ export default {
   name: "App",
   data() {
     return {
-      Dataplatform: [],
+      Dataplatform: "Backend Connection Failed",
     };
   },
   mounted() {
