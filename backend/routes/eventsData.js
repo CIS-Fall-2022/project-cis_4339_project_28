@@ -13,7 +13,7 @@ commonRoutes.generate_common_endpoints(eventdata, router);
 // 
 router.get("/dashboard/", (req, res, next) => {
     monthData=new Date();
-    monthData.setMonth(monthData.getMonth() - 1);
+    monthData.setMonth(monthData.getMonth() - 2);
     eventdata.find( 
         { organization_id: process.env.ORG_ID, date:{$gte:monthData}}, 
         (error, data) => {
