@@ -12,13 +12,23 @@ commonRoutes.generate_common_endpoints(eventdata, router);
 
 // 
 router.get("/dashboard/", (req, res, next) => {
+    monthData=new Date();
+    monthData.setMonth(monthData.getMonth() - 2);
     eventdata.find( 
-        { organization_id: process.env.ORG_ID}, 
+        { organization_id: process.env.ORG_ID, date:{$gte:monthData}}, 
         (error, data) => {
             if (error) {
                 return next(error);
             } else {
-                res.json(data);
+                output_data = [];
+                for (i = 0; i < data.length; i++) {
+                    newdata = new Object();
+                    newdata.date = data[i].date
+                    newdata.eventName = data[i].eventName
+                    newdata.count = data[i].attendees.length
+                    output_data.push(newdata)
+                } 
+                res.json(output_data);
             }
         }
     );

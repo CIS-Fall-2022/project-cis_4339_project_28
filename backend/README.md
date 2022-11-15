@@ -12,6 +12,7 @@ Setup a .env file with the following variables, e.g.:
 
 ```
 MONGO_URL = mongodb+srv://<username>:<password>@cluster0.abcdc.mongodb.net/dbname
+ORG_ID=6334e90a2dfa454f9f9396df
 ```
 
 ### Compiles and hot-reloads for development
