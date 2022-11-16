@@ -46,18 +46,11 @@
             @click="clearSearch"
             type="submit"
           >Clear Search</button>
-          &nbsp;
           <button
             class="bg-red-700 text-white rounded"
             @click="handleSubmitForm"
             type="submit"
           >Search Event</button>
-          &nbsp;
-          <button
-            class="bg-red-700 text-white rounded"
-            @click="handleSubmitForm"
-            type="submit"
-          >Delete Event</button>
         </div>
       </div>
     </div>
@@ -83,6 +76,11 @@
               <td class="p-2 text-left">{{ event.eventName }}</td>
               <td class="p-2 text-left">{{ formattedDate(event.date) }}</td>
               <td class="p-2 text-left">{{ event.address.line1 }}</td>
+              <button
+                class="bg-red-700 text-white rounded"
+                @click="handleSubmitForm"
+                type="submit"
+              >Delete Event</button>
             </tr>
           </tbody>
         </table>
