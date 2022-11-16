@@ -46,11 +46,18 @@
             @click="clearSearch"
             type="submit"
           >Clear Search</button>
+          &nbsp;
           <button
             class="bg-red-700 text-white rounded"
             @click="handleSubmitForm"
             type="submit"
           >Search Event</button>
+          &nbsp;
+          <button
+            class="bg-red-700 text-white rounded"
+            @click="handleSubmitForm"
+            type="submit"
+          >Delete Event</button>
         </div>
       </div>
     </div>
