@@ -69,28 +69,18 @@
               <th class="p-4 text-left">Event Name</th>
               <th class="p-4 text-left">Event Date</th>
               <th class="p-4 text-left">Event Address</th>
-              <th class="p-4 text-left">Actions</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-300">
-            <!-- <tr @click="editEvent(event._id)" v-for="event in queryData" :key="event._id"> -->
-            <tr v-for="event in queryData" :key="event._id">
+            <tr @click="editEvent(event._id)" v-for="event in queryData" :key="event._id">
               <td class="p-2 text-left">{{ event.eventName }}</td>
               <td class="p-2 text-left">{{ formattedDate(event.date) }}</td>
               <td class="p-2 text-left">{{ event.address.line1 }}</td>
-              <td>
-                <button
-                  class="bg-blue-700 text-white rounded"
-                  @click="editEvent(event._id)" 
-                  type="submit"
-                >Edit</button>
-                &nbsp;
-                <button
-                  class="bg-red-700 text-white rounded"
-                  @click="handleDeleteEvent(event._id)"
-                  type="submit"
-                >Delete</button>
-              </td> 
+              <button
+                class="bg-red-700 text-white rounded"
+                @click="handleSubmitForm"
+                type="submit"
+              >Delete Event</button>
             </tr>
           </tbody>
         </table>
@@ -156,21 +146,6 @@ export default {
     editEvent(eventID) {
       this.$router.push({ name: "eventdetails", params: { id: eventID } });
     },
-    handleDeleteEvent(eventID) {
-      // let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${eventID}`;
-      // let index = this.eventdata.findIndex(i => i._id === eventID);
-
-      if (window.confirm("Do you really want to delete?")) {
-        let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${eventID}`;
-        let index = this.eventdata.findIndex(i => i._id === eventID);
-
-        axios.delete(apiURL).then(() => {
-          this.eventData.splice(index, 1);
-        }).catch(error => {
-          console.log(error)
-        });
-      }
-    }
   },
 };
 </script>
