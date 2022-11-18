@@ -148,6 +148,13 @@ export default {
     editClient(clientID) {
       this.$router.push({ name: "updateclient", params: { id: clientID } });
     },
+    deleteClient(clientID) {
+      let apiURL = import.meta.env.VITE_ROOT_API + /primarydata/delete;
+      axios.delete(apiURL, {data: {id: clientID}}).then((resp) => {
+        alert("Client has been deleted.");
+        location.reload()
+      });
+    }
   },
 };
 </script>
