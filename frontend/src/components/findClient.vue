@@ -158,3 +158,8 @@ export default {
   },
 };
 </script>
+<style>
+.option-icon:hover {
+  cursor: pointer;
+}
+</style>
