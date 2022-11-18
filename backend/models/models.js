@@ -98,7 +98,7 @@ let eventDataSchema = new Schema({
     collection: 'eventData'
 });
 
-//collection for eventData
+//collection for organizationData
 let organizationDataSchema = new Schema({
     _id: { type: Schema.Types.ObjectId, auto:true },
     organizationName: {
