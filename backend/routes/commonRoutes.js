@@ -2,7 +2,7 @@ const express = require("express");
 
 function delete_endpoint(target_collection, router){
     router.delete("/:id", (req, res, next) => { 
-        target_collection.findOneandRemove( 
+        target_collection.findOneAndDelete( 
             {_id: req.params.id, organization_id: process.env.ORG_ID},
             (error, data) => {
                 if (error) {

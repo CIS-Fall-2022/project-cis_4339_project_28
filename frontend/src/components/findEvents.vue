@@ -162,10 +162,10 @@ export default {
 
       if (window.confirm("Do you really want to delete?")) {
         let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${eventID}`;
-        let index = this.eventdata.findIndex(i => i._id === eventID);
+        let index = this.queryData.findIndex(i => i._id === eventID);
 
         axios.delete(apiURL).then(() => {
-          this.eventData.splice(index, 1);
+          this.queryData.splice(index, 1);
         }).catch(error => {
           console.log(error)
         });

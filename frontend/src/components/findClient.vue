@@ -81,13 +81,27 @@
               <th class="p-4 text-left">Name</th>
               <th class="p-4 text-left">Phone number</th>
               <th class="p-4 text-left">City</th>
+              <th class="p-4 text-left">Actions</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-300">
-            <tr @click="editClient(client._id)" v-for="client in queryData" :key="client._id">
+            <tr v-for="client in queryData" :key="client._id">
               <td class="p-2 text-left">{{ client.firstName + " " + client.lastName }}</td>
               <td class="p-2 text-left">{{ client.phoneNumbers[0].primaryPhone }}</td>
               <td class="p-2 text-left">{{ client.address.city }}</td>
+              <td>
+                <button
+                  class="bg-blue-700 text-white rounded"
+                  @click="editClient(client._id)" 
+                  type="submit"
+                >Edit</button>
+                &nbsp;
+                <button
+                  class="bg-red-700 text-white rounded"
+                  @click="handleDeleteEvent(client._id)"
+                  type="submit"
+                >Delete</button>
+              </td> 
             </tr>
           </tbody>
         </table>
@@ -148,12 +162,20 @@ export default {
     editClient(clientID) {
       this.$router.push({ name: "updateclient", params: { id: clientID } });
     },
-    deleteClient(clientID) {
-      let apiURL = import.meta.env.VITE_ROOT_API + /primarydata/delete;
-      axios.delete(apiURL, {data: {id: clientID}}).then((resp) => {
-        alert("Client has been deleted.");
-        location.reload()
-      });
+    handleDeleteEvent(clientID) {
+      // let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${eventID}`;
+      // let index = this.eventdata.findIndex(i => i._id === eventID);
+
+      if (window.confirm("Do you really want to delete?")) {
+        let apiURL = import.meta.env.VITE_ROOT_API + `/primarydata/${clientID}`;
+        let index = this.queryData.findIndex(i => i._id === clientID);
+
+        axios.delete(apiURL).then(() => {
+          this.queryData.splice(index, 1);
+        }).catch(error => {
+          console.log(error)
+        });
+      }
     }
   },
 };
