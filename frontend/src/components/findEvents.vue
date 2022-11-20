@@ -84,12 +84,12 @@
                   @click="editEvent(event._id)" 
                   type="submit"
                 >Edit</button>
-                &nbsp;
-                <button
+                <!-- MOVED DELETE BUTTON TO EVENTDETAILS.VUE -->
+                <!-- <button
                   class="bg-red-700 text-white rounded"
                   @click="handleDeleteEvent(event._id)"
                   type="submit"
-                >Delete</button>
+                >Delete</button> -->
               </td> 
             </tr>
           </tbody>
@@ -156,21 +156,24 @@ export default {
     editEvent(eventID) {
       this.$router.push({ name: "eventdetails", params: { id: eventID } });
     },
-    handleDeleteEvent(eventID) {
-      // let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${eventID}`;
-      // let index = this.eventdata.findIndex(i => i._id === eventID);
+    // MOVED TO HANDLE_DELETE_EVENT EVENTDETAILS.VUE 
+    // handleDeleteEvent(eventID) {
 
-      if (window.confirm("Do you really want to delete?")) {
-        let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${eventID}`;
-        let index = this.queryData.findIndex(i => i._id === eventID);
+    //   // Pop up window to confirm event delete
+    //   if (window.confirm("Are you sure you want to delete?")) {
+    //     let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${eventID}`;
+    //     let index = this.queryData.findIndex(i => i._id === eventID);
 
-        axios.delete(apiURL).then(() => {
-          this.queryData.splice(index, 1);
-        }).catch(error => {
-          console.log(error)
-        });
-      }
-    }
-  },
+    //     axios.delete(apiURL).then(() => {
+    //       this.queryData.splice(index, 1);
+    //       alert("Event has beens successfully deleted")
+    //       console.log("Event has beens successfully deleted")
+    //     }).catch(error => {
+    //       alert("You have the following error,", error)
+    //       console.log(error)
+    //     });
+    //   }
+    // }
+  }
 };
 </script>
