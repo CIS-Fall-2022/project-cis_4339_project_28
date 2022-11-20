@@ -95,12 +95,6 @@
                   @click="editClient(client._id)" 
                   type="submit"
                 >Edit</button>
-                &nbsp;
-                <button
-                  class="bg-red-700 text-white rounded"
-                  @click="handleDeleteEvent(client._id)"
-                  type="submit"
-                >Delete</button>
               </td> 
             </tr>
           </tbody>
