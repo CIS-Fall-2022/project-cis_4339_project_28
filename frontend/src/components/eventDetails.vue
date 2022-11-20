@@ -338,7 +338,7 @@ export default {
         let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${this.id}`;
 
         axios.delete(apiURL,this.event).then(() => {
-          alert("Event has beens successfully deleted")
+          alert("Event has been successfully deleted")
           console.log("Event has been successfully deleted")
           this.$router.back().catch((error) => {
             alert("ERROR - Event has NOT been deleted")
